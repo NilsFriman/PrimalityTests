@@ -1,0 +1,29 @@
+public static boolean isPrime(int number){
+        // Om talet är 0 eller 1 så är det inte ett primtal.
+        if (number < 2){
+            return false;
+        }
+        // Om talet är 2 eller 3 så är det ett primtal.
+        if (number == 2 || number == 3){
+            return true;
+        }
+        // Checking-variabeln kommer användas för att se om talet är delbart. Checking kommer alltid kunna beskrivas som 6k +- 1.
+        int checking = 1;
+        // Upp till roten ur talet krävs för att efter det testar vi samma potentiella multiplikationstal, fast i omvänd ordning.
+        while (checking < Math.sqrt(number) + 1){
+            // Går från 6k + 1 till 6k - 1.
+            checking += 4;
+            // Om det är jämt delbart är talet självklart inte ett primtal.
+            if (number % checking == 0){
+                return false;
+            }
+            // Går från 6k - 1 till 6k + 1.
+            checking += 2;
+            // Om det är jämt delbart är talet självklart inte ett primtal.
+            if (number % checking == 0){
+                return false;
+            }
+        }
+        // Kommer talet igenom hela loopen innebär det att talet är ett primtal.
+        return true;
+    }
