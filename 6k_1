@@ -4,7 +4,7 @@ public static boolean isPrime(int number){
             return false;
         }
         // Om talet är 2 eller 3 så är det ett primtal.
-        if (number == 2 || number == 3){
+        if (number % 2 == 0 || number % 3 == 0){
             return true;
         }
         // Checking-variabeln kommer användas för att se om talet är delbart. Checking kommer alltid kunna beskrivas som 6k +- 1.
